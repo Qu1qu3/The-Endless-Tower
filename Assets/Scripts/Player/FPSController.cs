@@ -9,6 +9,9 @@ public class FPSController : MonoBehaviour {
     public bool lockCursor;
     public float mouseSensitivity = 10;
 
+    private bool isHolding;
+    private Holdeable holdingObject;
+
     public PlayerPortal playerPortal;
     public PlayerInteract playerInteract;
 
@@ -22,7 +25,8 @@ public class FPSController : MonoBehaviour {
     Vector3 moveDirection;
 
     void Start () {
-
+        isHolding = false;
+        holdingObject = null;
         playerPortal.Initialize();
         cam = Camera.main;
         if (lockCursor) {
@@ -62,7 +66,14 @@ public class FPSController : MonoBehaviour {
         if(Input.GetKey(KeyCode.LeftShift)) {multVel = 1;} else {multVel = 1;}
         if(Input.GetMouseButtonDown(0)) playerPortal.shootPortal(0);
         if(Input.GetMouseButtonDown(1)) playerPortal.shootPortal(1);
-        if(Input.GetKeyDown(KeyCode.E)) playerInteract.tryToInteract();
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(isHolding)
+            {   holdingObject.stopHolding();
+                stopHolding();}
+            else playerInteract.tryToInteract();
+        }
+        
     }
     void movePlayer()
     {
@@ -87,6 +98,18 @@ public class FPSController : MonoBehaviour {
         {
             Rbody.AddForce(dir * drag * Time.fixedDeltaTime);
         }
+    }
+
+    public void hold(Holdeable obj)
+    {
+        holdingObject = obj;
+        isHolding = true;
+    }
+
+    public void stopHolding()
+    {
+        holdingObject = null;
+        isHolding = false;
     }
 
     

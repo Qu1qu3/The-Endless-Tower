@@ -7,7 +7,7 @@ public class PlayerInteract
 {   
     public float distanceInteract = 3f;
     private LayerMask mask;
-    void Start()
+    public void Initialize()
     {
         mask = LayerMask.GetMask("Interactable"); 
     }
@@ -24,6 +24,7 @@ public class PlayerInteract
             }
         }
     }
+
 
     void Update()
     {
