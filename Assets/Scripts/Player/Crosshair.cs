@@ -10,7 +10,6 @@ public class Crosshair : MonoBehaviour
     public float cY = 1f;
     private float multVel;
     private float anguloGir = 0f;
-    private float anguloGir2 = 180f;
     private UnityEngine.UI.Image image;
     // Start is called before the first frame update
     void Start()
