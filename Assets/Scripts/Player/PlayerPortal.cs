@@ -27,8 +27,9 @@ public class PlayerPortal
     {
         
         RaycastHit hit;
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, 1 << 9))
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity)) //, 1 << 9
         {
+            if(hit.transform.gameObject.layer != LayerMask.NameToLayer("Wall")) return;
             //Debug.Log("Hit " + p);
             //Debug.Log(Portal[p].transform.forward + "  PF");
             if(hit.normal.z == - Portal[p].transform.forward.z && hit.normal.z != 0f) 

@@ -70,8 +70,8 @@ public class FPSController : MonoBehaviour {
     {
         if(Input.GetKey(KeyCode.LeftShift)) {multVel = 1;} else {multVel = 1;}
         if(Input.GetKeyDown(KeyCode.Space)) jump();
-        if(Input.GetMouseButtonDown(0)) playerPortal.shootPortal(0);
-        if(Input.GetMouseButtonDown(1)) playerPortal.shootPortal(1);
+        if(Input.GetMouseButtonDown(0) && !isHolding) playerPortal.shootPortal(0);
+        if(Input.GetMouseButtonDown(1) && !isHolding) playerPortal.shootPortal(1);
         if(Input.GetKeyDown(KeyCode.E))
         {
             if(isHolding) holdingObject.stopHolding();
@@ -84,21 +84,23 @@ public class FPSController : MonoBehaviour {
         //Debug.Log (moveDirection.normalized, Rbody);
         moveDirection = transform.forward * Input.  GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
         if (isGround) applyDrag(-Rbody.velocity);
-        Rbody.AddForce(moveDirection.normalized * velocidad * multVel, ForceMode.VelocityChange );
+        
         //if(moveDirection.x == 0f) Rbody.velocity = new Vector3(0f, Rbody.velocity.y, Rbody.velocity.z);
         //if(moveDirection.z == 0f) Rbody.velocity = new Vector3(Rbody.velocity.x, Rbody.velocity.y, 0f);
         Vector2 velocitySides = new Vector2(Rbody.velocity.x, Rbody.velocity.z);
         if(velocitySides.magnitude > 3f)
         {
+            //moveDirection = Vector3.zero;
             velocitySides = Vector2.ClampMagnitude(velocitySides, 3f);
             Rbody.velocity = new Vector3(velocitySides.x,Rbody.velocity.y,velocitySides.y);
         }
+        Rbody.AddForce(moveDirection.normalized * velocidad * multVel, ForceMode.VelocityChange );
         
     }
 
     private void jump()
     {
-        Debug.Log (isGround);
+        //Debug.Log (isGround);
         if(isGround)
         {
             Rbody.AddForce(Vector2.up * jumpForce);
