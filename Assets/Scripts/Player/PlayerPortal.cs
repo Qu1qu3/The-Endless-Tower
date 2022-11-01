@@ -14,7 +14,7 @@ public class PlayerPortal
     public void Initialize()
     {
         Portal = new PortalScript[2];
-        Debug.Log("InitShoot");
+        //Debug.Log("InitShoot");
         Portal[0] = Portal1;
         Portal[1] = Portal2;
         mask = LayerMask.GetMask("Wall"); 

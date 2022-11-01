@@ -7,13 +7,15 @@ public class Holdeable : Interactable
     // Start is called before the first frame update
     [SerializeField] Transform holdArea;
     private FPSController player;
-    bool isHolded;
+    public bool isHolded;
+    public bool canBeHolded;
     Rigidbody rb;
 
     public float pickUpForce = 150.0f;
 
     void Start()
     {
+        canBeHolded = true;
         holdArea = GameObject.Find("holdObj").transform;
         player = GameObject.Find("Mage").GetComponent<FPSController>();
         isHolded = false;
@@ -23,7 +25,7 @@ public class Holdeable : Interactable
     public override void Interact()
     {
         if(isHolded) stopHolding();
-        else startHolding();
+        else if(canBeHolded) startHolding();
     }
     public void stopHolding()
     {
@@ -31,7 +33,7 @@ public class Holdeable : Interactable
         isHolded = false;
         rb.useGravity = true;
         rb.drag = 1;
-        rb.constraints = RigidbodyConstraints.None;
+        rb.constraints &= ~RigidbodyConstraints.FreezeRotation;
 
         transform.parent = null;
         rb.velocity = Vector3.zero;
@@ -43,7 +45,7 @@ public class Holdeable : Interactable
         isHolded = true;
         rb.useGravity = false;
         rb.drag = 10;
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        rb.constraints |= RigidbodyConstraints.FreezeRotation;
 
         transform.parent = holdArea;
         player.hold(this);
@@ -61,5 +63,9 @@ public class Holdeable : Interactable
             Vector3 mDic = (holdArea.position - transform.position);
             rb.AddForce(mDic * pickUpForce);
         }
+    }
+
+    public void setCanBeHolded(bool b)
+    {canBeHolded = b;
     }
 }

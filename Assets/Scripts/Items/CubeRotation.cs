@@ -8,7 +8,6 @@ public class CubeRotation : MonoBehaviour
     private float velx, vely, velz;
     public float velU = 0.01f;
     private float velUs, anguloGir;
-    public float offset = 0f;
     private int[] ran = { -1, 1 };
     // Start is called before the first frame update
     void Start()

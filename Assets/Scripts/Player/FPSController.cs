@@ -68,9 +68,7 @@ public class FPSController : MonoBehaviour {
         if(Input.GetMouseButtonDown(1)) playerPortal.shootPortal(1);
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(isHolding)
-            {   holdingObject.stopHolding();
-                stopHolding();}
+            if(isHolding) holdingObject.stopHolding();
             else playerInteract.tryToInteract();
         }
         
