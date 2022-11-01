@@ -14,6 +14,8 @@ public class FPSController : MonoBehaviour {
 
     public PlayerPortal playerPortal;
     public PlayerInteract playerInteract;
+    private GameObject jumpCheck;
+    public Vector3 jumpCheckSize;
 
 
     Camera cam;
@@ -23,8 +25,10 @@ public class FPSController : MonoBehaviour {
     Rigidbody Rbody;
     float rotX;
     Vector3 moveDirection;
+    private bool isGround;
 
     void Start () {
+        jumpCheck = transform.Find("jumpCheck").gameObject;
         isHolding = false;
         holdingObject = null;
         playerPortal.Initialize();
@@ -39,6 +43,7 @@ public class FPSController : MonoBehaviour {
     }
 
     void Update () {
+        isGround = Physics.SphereCast(transform.position, 0.3f, Vector3.down, out RaycastHit hit, 1.2f);
         readInput();
         
         //transform.Translate(new Vector3( Input.GetAxis("Horizontal") * Time.deltaTime * multVel * velocidad, 0.0f, Input.GetAxis("Vertical") * Time.deltaTime * multVel * velocidad) );
@@ -64,6 +69,7 @@ public class FPSController : MonoBehaviour {
     void readInput()
     {
         if(Input.GetKey(KeyCode.LeftShift)) {multVel = 1;} else {multVel = 1;}
+        if(Input.GetKeyDown(KeyCode.Space)) jump();
         if(Input.GetMouseButtonDown(0)) playerPortal.shootPortal(0);
         if(Input.GetMouseButtonDown(1)) playerPortal.shootPortal(1);
         if(Input.GetKeyDown(KeyCode.E))
@@ -77,7 +83,7 @@ public class FPSController : MonoBehaviour {
     {
         //Debug.Log (moveDirection.normalized, Rbody);
         moveDirection = transform.forward * Input.  GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
-        applyDrag(-Rbody.velocity);
+        if (isGround) applyDrag(-Rbody.velocity);
         Rbody.AddForce(moveDirection.normalized * velocidad * multVel, ForceMode.VelocityChange );
         //if(moveDirection.x == 0f) Rbody.velocity = new Vector3(0f, Rbody.velocity.y, Rbody.velocity.z);
         //if(moveDirection.z == 0f) Rbody.velocity = new Vector3(Rbody.velocity.x, Rbody.velocity.y, 0f);
@@ -88,6 +94,15 @@ public class FPSController : MonoBehaviour {
             Rbody.velocity = new Vector3(velocitySides.x,Rbody.velocity.y,velocitySides.y);
         }
         
+    }
+
+    private void jump()
+    {
+        Debug.Log (isGround);
+        if(isGround)
+        {
+            Rbody.AddForce(Vector2.up * jumpForce);
+        }
     }
 
     private void applyDrag(Vector3 dir)
