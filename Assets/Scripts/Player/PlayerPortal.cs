@@ -20,7 +20,7 @@ public class PlayerPortal
     public void Initialize()
     {
         layoutDiff = GameObject.Find("LayoutPasado").transform.position - GameObject.Find("Layout").transform.position;
-        Portal = new PortalScript[5];
+        Portal = new PortalScript[3];
         //Debug.Log("InitShoot");
         Portal[0] = Portal1;
         Portal[1] = Portal2;
