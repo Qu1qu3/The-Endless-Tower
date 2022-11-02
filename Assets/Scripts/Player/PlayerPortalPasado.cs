@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerPortal
+public class PlayerPortalPasado
 {
     private LayerMask mask;
     PortalScript[] Portal;
@@ -24,7 +24,7 @@ public class PlayerPortal
         //Debug.Log("InitShoot");
         Portal[0] = Portal1;
         Portal[1] = Portal2;
-        Portal[2] = PortalTiempo;
+        Portal[2] = PortalTiempoPasado;
         mask = LayerMask.GetMask("Wall"); 
     }
     void Update()
@@ -60,9 +60,9 @@ public class PlayerPortal
             //Portal del Tiempo
             if(p == 2)
             {
-                PortalTiempoPasado.transform.position = Portal[p].transform.position + layoutDiff;
-                PortalTiempoPasado.transform.rotation = Portal[p].transform.rotation;
-                PortalTiempoPasado.getOwnCollider();
+                PortalTiempo.transform.position = Portal[p].transform.position - layoutDiff;
+                PortalTiempo.transform.rotation = Portal[p].transform.rotation;
+                PortalTiempo.getOwnCollider();
             }
             
         }

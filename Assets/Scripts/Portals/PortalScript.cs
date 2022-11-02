@@ -5,13 +5,16 @@ using UnityEngine;
 public class PortalScript : MonoBehaviour
 {
     public Transform OtherPortal;
-    public Camera playerCam;
-    public Camera portalCam;
-    public Camera OtherPortalCam;
-    public GameObject player;
-    
+    private Camera playerCam;
+    private Camera portalCam;
+    private Camera OtherPortalCam;
+    private GameObject player;
+
+    private Transform holdObjPlayer;
+    private Vector3 originalHoldPos;
+
     public MeshCollider terrainBehind;
-    public CapsuleCollider playerColider;
+    private CapsuleCollider playerColider;
 
     private bool isOpen;
     Rigidbody playerRbody;
@@ -22,10 +25,17 @@ public class PortalScript : MonoBehaviour
     }
     void Start()
     {
+        player = GameObject.Find("Mage");
+        
+        playerCam = Camera.main;
+        portalCam = GetComponentsInChildren<Camera>()[0];
+        OtherPortalCam = OtherPortal.GetComponentsInChildren<Camera>()[0];
+        playerColider = player.GetComponent<CapsuleCollider>();
         isOpen = false;
         playerRbody = player.GetComponent<Rigidbody>();
         
-
+        //holdObjPlayer = GameObject.Find("holdObj").transform;
+        //originalHoldPos = holdObjPlayer.localPosition;
     }
 
     // Update is called once per frame
@@ -77,8 +87,12 @@ public class PortalScript : MonoBehaviour
                 
                 
                 playerRbody.velocity = ftoR * vel;
+                
                 //Debug.Log (ftoR);
                 //playerRbody.velocity = - OtherPortal.transform.forward * playerRbody.velocity.y * 2;
+
+                //holdObjPlayer.position =  OtherPortal.position + OtherPortal.transform.forward;
+                //Invoke("setOldPos", 0.5f);
             }
         }
     }
@@ -109,4 +123,17 @@ public class PortalScript : MonoBehaviour
 
         portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
     }
+
+    public void getOwnCollider()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, -transform.forward, out hit, 0.1f, 1 << 9))
+        {
+            terrainBehind = hit.collider.GetComponent<MeshCollider>();
+        }
+    }
+    /*void setOldPos()
+    {
+        holdObjPlayer.localPosition = originalHoldPos;
+    }*/
 }

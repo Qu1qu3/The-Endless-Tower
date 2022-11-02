@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 8400000, guid: 3884c4bbd3b8d7e478dc6ff9dfc0937e, type: 2}
     - target: {fileID: 8977282847184230765, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Name
-      value: CameraP2
+      value: CameraPortal
       objectReference: {fileID: 0}
     - target: {fileID: 8977282847335612275, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Name
@@ -318,7 +318,7 @@ PrefabInstance:
       objectReference: {fileID: 1373308963}
     - target: {fileID: 8977282848527828441, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Name
-      value: PlanePortal2
+      value: PlanePortal
       objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828444, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -917,6 +917,10 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: df97f6c11c138cb4da281e9d164065d7, type: 2}
+    - target: {fileID: 8977282847184230765, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: m_Name
+      value: CameraPortal
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282847335612275, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Name
       value: Portal1
@@ -993,6 +997,10 @@ PrefabInstance:
       propertyPath: OtherPortalCam
       value: 
       objectReference: {fileID: 1048149608}
+    - target: {fileID: 8977282848527828441, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: m_Name
+      value: PlanePortal
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828444, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

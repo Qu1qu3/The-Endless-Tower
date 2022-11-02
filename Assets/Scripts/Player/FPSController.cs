@@ -13,9 +13,13 @@ public class FPSController : MonoBehaviour {
     private Holdeable holdingObject;
 
     public PlayerPortal playerPortal;
+    public PlayerPortalPasado playerPortalPasado;
     public PlayerInteract playerInteract;
     private GameObject jumpCheck;
     public Vector3 jumpCheckSize;
+
+    [SerializeField] private bool isPasado;
+    [SerializeField] private float puntoMedio;
 
 
     Camera cam;
@@ -32,6 +36,7 @@ public class FPSController : MonoBehaviour {
         isHolding = false;
         holdingObject = null;
         playerPortal.Initialize();
+        playerPortalPasado.Initialize();
         cam = Camera.main;
         if (lockCursor) {
             Cursor.lockState = CursorLockMode.Locked;
@@ -39,10 +44,12 @@ public class FPSController : MonoBehaviour {
         }
 
         Rbody = GetComponent<Rigidbody>();
+        puntoMedio = (GameObject.Find("LayoutPasado").transform.position.x + GameObject.Find("Layout").transform.position.x)/2;
         
     }
 
     void Update () {
+        isPasado = transform.position.x < puntoMedio;
         isGround = Physics.SphereCast(transform.position, 0.3f, Vector3.down, out RaycastHit hit, 1.2f);
         readInput();
         
@@ -70,8 +77,9 @@ public class FPSController : MonoBehaviour {
     {
         if(Input.GetKey(KeyCode.LeftShift)) {multVel = 1;} else {multVel = 1;}
         if(Input.GetKeyDown(KeyCode.Space)) jump();
-        if(Input.GetMouseButtonDown(0) && !isHolding) playerPortal.shootPortal(0);
-        if(Input.GetMouseButtonDown(1) && !isHolding) playerPortal.shootPortal(1);
+        if(Input.GetMouseButtonDown(0) && !isHolding) shootPortal(0);
+        if(Input.GetMouseButtonDown(1) && !isHolding) shootPortal(1);
+        if(Input.GetKeyDown(KeyCode.Q) && !isHolding) shootPortal(2);
         if(Input.GetKeyDown(KeyCode.E))
         {
             if(isHolding) holdingObject.stopHolding();
@@ -98,6 +106,11 @@ public class FPSController : MonoBehaviour {
         
     }
 
+    private void shootPortal(int p)
+    {
+        if(isPasado) playerPortalPasado.shootPortal(p);
+        else playerPortal.shootPortal(p);
+    }
     private void jump()
     {
         //Debug.Log (isGround);
