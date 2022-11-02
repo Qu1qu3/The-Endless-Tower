@@ -26,6 +26,8 @@ public class FPSController : MonoBehaviour {
     
     public float velocidad;
     private int multVel;
+    private float multVel2;
+    private float multAir;
     Rigidbody Rbody;
     float rotX;
     Vector3 moveDirection;
@@ -52,8 +54,7 @@ public class FPSController : MonoBehaviour {
         isPasado = transform.position.x < puntoMedio;
         isGround = Physics.SphereCast(transform.position, 0.3f, Vector3.down, out RaycastHit hit, 1.2f);
         readInput();
-        
-        //transform.Translate(new Vector3( Input.GetAxis("Horizontal") * Time.deltaTime * multVel * velocidad, 0.0f, Input.GetAxis("Vertical") * Time.deltaTime * multVel * velocidad) );
+        if(isGround) multAir = 1f; else multAir = 0.3f;
         
         
         
@@ -98,11 +99,12 @@ public class FPSController : MonoBehaviour {
         Vector2 velocitySides = new Vector2(Rbody.velocity.x, Rbody.velocity.z);
         if(velocitySides.magnitude > 3f)
         {
-            //moveDirection = Vector3.zero;
-            velocitySides = Vector2.ClampMagnitude(velocitySides, 3f);
-            Rbody.velocity = new Vector3(velocitySides.x,Rbody.velocity.y,velocitySides.y);
+            multVel2 = 0.5f;
+            //velocitySides = Vector2.ClampMagnitude(velocitySides, 3f);
+            //Rbody.velocity = new Vector3(velocitySides.x,Rbody.velocity.y,velocitySides.y);
         }
-        Rbody.AddForce(moveDirection.normalized * velocidad * multVel, ForceMode.VelocityChange );
+        else multVel2 = 1f;
+        Rbody.AddForce(moveDirection.normalized * velocidad * multVel * multVel2 *multAir, ForceMode.VelocityChange );
         
     }
 
