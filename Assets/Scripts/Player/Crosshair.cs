@@ -32,7 +32,6 @@ public class Crosshair : MonoBehaviour
     private void UpdateColor()
     {
         image.color = new Color(cX, cY, cZ, 1f);
-
     }
 
     private void UpdateRGB()

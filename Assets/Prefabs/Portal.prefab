@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8977282847184230673}
   - component: {fileID: 8977282847184230672}
   m_Layer: 10
-  m_Name: CameraP1
+  m_Name: CameraPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ Camera:
     m_Bits: 2871
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: bbf6a048e5d64824390ab760c4acdc4b, type: 2}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8977282847335612279}
   - component: {fileID: 8977282847335612280}
   m_Layer: 10
-  m_Name: Portal1
+  m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,12 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherPortal: {fileID: 0}
-  playerCam: {fileID: 0}
-  portalCam: {fileID: 0}
-  OtherPortalCam: {fileID: 0}
-  player: {fileID: 0}
   terrainBehind: {fileID: 0}
-  playerColider: {fileID: 0}
 --- !u!65 &8977282847335612279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,7 +173,7 @@ GameObject:
   - component: {fileID: 8977282848527828444}
   - component: {fileID: 8977282848527828443}
   m_Layer: 10
-  m_Name: PlanePortal1
+  m_Name: PlanePortal
   m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

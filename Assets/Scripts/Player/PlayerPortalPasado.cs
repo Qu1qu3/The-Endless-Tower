@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PlayerPortal
+public class PlayerPortalPasado
 {
     private LayerMask mask;
     PortalScript[] Portal;
-
+    PortalScript[] PortalFuturo;
     
     public PortalScript Portal1;
     public PortalScript Portal2;
     public PortalScript PortalTiempo;
     public PortalScript PortalTiempoPasado;
+    public PortalScript Portal1Pasado;
+    public PortalScript Portal2Pasado;
 
     private Vector3 layoutDiff;
 
@@ -21,10 +23,16 @@ public class PlayerPortal
     {
         layoutDiff = GameObject.Find("LayoutPasado").transform.position - GameObject.Find("Layout").transform.position;
         Portal = new PortalScript[3];
+        PortalFuturo = new PortalScript[3];
         //Debug.Log("InitShoot");
-        Portal[0] = Portal1;
-        Portal[1] = Portal2;
-        Portal[2] = PortalTiempo;
+        Portal[0] = Portal1Pasado;
+        Portal[1] = Portal2Pasado;
+        Portal[2] = PortalTiempoPasado;
+
+        PortalFuturo[0] = Portal1;
+        PortalFuturo[1] = Portal2;
+        PortalFuturo[2] = PortalTiempo;
+
         mask = LayerMask.GetMask("Wall"); 
     }
     void Update()
@@ -57,13 +65,11 @@ public class PlayerPortal
             Portal[p].transform.position = hit.point + Portal[p].transform.forward * 0.001f;
             Portal[p].terrainBehind = hit.collider.GetComponent<MeshCollider>();
 
-            //Portal del Tiempo
-            if(p == 2)
-            {
-                PortalTiempoPasado.transform.position = Portal[p].transform.position + layoutDiff;
-                PortalTiempoPasado.transform.rotation = Portal[p].transform.rotation;
-                PortalTiempoPasado.getOwnCollider();
-            }
+            //Mover Portal del futuro
+            PortalFuturo[p].transform.position = Portal[p].transform.position - layoutDiff;
+            PortalFuturo[p].transform.rotation = Portal[p].transform.rotation;
+            PortalFuturo[p].getOwnCollider();
+            
             
         }
     }
