@@ -28,9 +28,9 @@ public class Altar : MonoBehaviour
         posCube = transform.Find("PosCube");
         light = transform.Find("LightA").gameObject;
 
-        velx = velRot * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)];
-        vely = velRot * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)];
-        velz = velRot * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)];
+        velx = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
+        vely = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
+        velz = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
         velUs = rangeUp;
     }
 
@@ -44,8 +44,13 @@ public class Altar : MonoBehaviour
     {
         if(!isCentered) moveToCenter();
         if(isCentered && holdCube.isHolded) quitCube();
+        
+    }
+    void FixedUpdate()
+    {
         if(isCentered) UpdateCubeRotation();
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -79,7 +84,7 @@ public class Altar : MonoBehaviour
     private void moveToCenter()
     {
         Vector3 movement = posCube.position - Cube.transform.position;
-        Cube.transform.Translate(movement * velTraslate, Space.World);
+        Cube.transform.Translate(movement * velTraslate * Time.deltaTime, Space.World);
         
         if(movement.magnitude <= 0.01f)
         {
