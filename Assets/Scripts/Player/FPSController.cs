@@ -12,6 +12,9 @@ public class FPSController : MonoBehaviour {
     private bool isHolding;
     private Holdeable holdingObject;
 
+    public bool canShoot1 = true;
+    public bool canShoot2 = true;
+    public bool canShootP = true;
     public PlayerPortal playerPortal;
     public PlayerPortalPasado playerPortalPasado;
     public PlayerInteract playerInteract;
@@ -78,9 +81,9 @@ public class FPSController : MonoBehaviour {
     {
         if(Input.GetKey(KeyCode.LeftShift)) {multVel = 1;} else {multVel = 1;}
         if(Input.GetKeyDown(KeyCode.Space)) jump();
-        if(Input.GetMouseButtonDown(0) && !isHolding) shootPortal(0);
-        if(Input.GetMouseButtonDown(1) && !isHolding) shootPortal(1);
-        if(Input.GetKeyDown(KeyCode.Q) && !isHolding) shootPortal(2);
+        if(Input.GetMouseButtonDown(0) && !isHolding && canShoot1) shootPortal(0);
+        if(Input.GetMouseButtonDown(1) && !isHolding && canShoot2) shootPortal(1);
+        if(Input.GetKeyDown(KeyCode.Q) && !isHolding && canShootP) shootPortal(2);
         if(Input.GetKeyDown(KeyCode.E))
         {
             if(isHolding) holdingObject.stopHolding();

@@ -85,11 +85,12 @@ public class PortalScript : MonoBehaviour
 
                 
                 
-                /*playerRbody.velocity = ftoR * vel;
-                playerRbody.velocity = new Vector3(playerRbody.velocity.x, -playerRbody.velocity.y, playerRbody.velocity.z);*/
+
                 vel2 = new Vector3(vel2.x, -vel2.y, vel2.z);
-                playerRbody.velocity = OtherPortal.transform.TransformDirection(vel2);
-                
+
+                //playerRbody.velocity = OtherPortal.transform.TransformDirection(vel2);
+
+                playerRbody.velocity = vel2.magnitude * OtherPortal.forward;
                 //Debug.Log (ftoR);
 
                 //holdObjPlayer.position =  OtherPortal.position + OtherPortal.transform.forward;
