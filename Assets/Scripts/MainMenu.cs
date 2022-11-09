@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Audio;
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private AudioMixer audioMixer;
     // Start is called before the first frame update
     public void playgame()
     {
@@ -16,5 +17,9 @@ public class MainMenu : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
     #endif
         Application.Quit();
+    }
+    public void controlMusica (float sliderMusica)
+    {
+        audioMixer.SetFloat("VolumenMusica",Mathf.Log10(sliderMusica)*20);
     }
 }
