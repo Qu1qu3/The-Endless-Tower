@@ -17,9 +17,11 @@ public class PlayerInteract
         RaycastHit hit;
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distanceInteract, 1 << 11))
         {
+            //Debug.Log ("E");
             Interactable inter = hit.collider.GetComponent<Interactable>();
             if(inter != null)
             {
+                //Debug.Log ("Interacting!");
                 inter.Interact();
             }
         }

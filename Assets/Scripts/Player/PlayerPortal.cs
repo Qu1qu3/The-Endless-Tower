@@ -54,7 +54,7 @@ public class PlayerPortal
                
             }
             //Debug.Log("TrueH " + hit.normal.y); 
-            Portal[p].transform.position = hit.point + Portal[p].transform.forward * 0.001f;
+            Portal[p].transform.position = hit.point + Portal[p].transform.forward * 0.005f;
             Portal[p].terrainBehind = hit.collider.GetComponent<MeshCollider>();
 
             //Portal del Tiempo
