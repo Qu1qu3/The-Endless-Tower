@@ -28,9 +28,7 @@ public class Altar : MonoBehaviour
         posCube = transform.Find("PosCube");
         lightA = transform.Find("LightA").gameObject;
 
-        velx = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
-        vely = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
-        velz = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
+
         velUs = rangeUp;
     }
 
@@ -65,7 +63,10 @@ public class Altar : MonoBehaviour
         holdCube.setCanBeHolded(false);
         rbCube.useGravity = false;
         rbCube.constraints |= RigidbodyConstraints.FreezePosition;
-        
+
+        velx = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
+        vely = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;
+        velz = velRot * 0.001f * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)] * Time.deltaTime;   
     }
 
 
