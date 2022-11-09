@@ -9,6 +9,7 @@ public class Altar : MonoBehaviour
     private Transform posCube;
     private Holdeable holdCube;
     private Rigidbody rbCube;
+    private GameObject light;
     [SerializeField] private bool isCentered;
     public float velTraslate = 0.01f;
 
@@ -25,7 +26,7 @@ public class Altar : MonoBehaviour
     {
         isCentered = false;
         posCube = transform.Find("PosCube");
-
+        light = transform.Find("LightA").gameObject;
 
         velx = velRot * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)];
         vely = velRot * Random.Range(0.2f, 0.5f) * ran[Random.Range(0, 1)];
@@ -73,6 +74,7 @@ public class Altar : MonoBehaviour
         holdCube = null;
         rbCube = null;
         Cube = null;
+        light.SetActive(false);
     }
     private void moveToCenter()
     {
@@ -85,6 +87,7 @@ public class Altar : MonoBehaviour
             anguloGir = 0f;
             InvokeRepeating("ReRandomCube", 1f, 1f);
             isCentered = true;
+            light.SetActive(true);
             interactionable.getOn();
         }
     }
