@@ -68,6 +68,7 @@ public class PortalScript : MonoBehaviour
                 Quaternion ftoR = Quaternion.FromToRotation(transform.forward, OtherPortal.transform.forward);
                 if(ftoR == new Quaternion(1f,0f,0f,0f)) ftoR = new Quaternion(0f,1f,0f,0f);
                 Vector3 vel = -playerRbody.velocity;
+                Vector3 vel2 = -transform.InverseTransformDirection(playerRbody.velocity);
                 /*player.transform.position = OtherPortal.position + new Vector3(-PlayerFromPortal.x,
                                                                                 +PlayerFromPortal.y,
                                                                                 -PlayerFromPortal.z);*/
@@ -79,18 +80,17 @@ public class PortalScript : MonoBehaviour
 
                 
                 player.transform.eulerAngles = Vector3.up * (OtherPortal.eulerAngles.y - (transform.eulerAngles.y - player.transform.eulerAngles.y) + 180);
-                //Vector3 CamLEA = playerCam.transform.localEulerAngles;
                 playerCam.transform.localEulerAngles = Vector3.right * (OtherPortal.eulerAngles.x + Camera.main.transform.localEulerAngles.x);
                 
-                //Vector3 velocidadLocalPlayer = -transform.InverseTransformPoint(playerRbody.velocity);
-                //playerRbody.velocity = (OtherPortal.transform.position - OtherPortalCam.transform.position).normalized * vel;
+
                 
                 
-                playerRbody.velocity = ftoR * vel;
+                /*playerRbody.velocity = ftoR * vel;
+                playerRbody.velocity = new Vector3(playerRbody.velocity.x, -playerRbody.velocity.y, playerRbody.velocity.z);*/
+                
+                playerRbody.velocity = OtherPortal.transform.TransformDirection(vel2);
                 playerRbody.velocity = new Vector3(playerRbody.velocity.x, -playerRbody.velocity.y, playerRbody.velocity.z);
-                
                 //Debug.Log (ftoR);
-                //playerRbody.velocity = - OtherPortal.transform.forward * playerRbody.velocity.y * 2;
 
                 //holdObjPlayer.position =  OtherPortal.position + OtherPortal.transform.forward;
                 //Invoke("setOldPos", 0.5f);
