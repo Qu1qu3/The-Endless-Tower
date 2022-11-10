@@ -4489,6 +4489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage
       objectReference: {fileID: 0}
+    - target: {fileID: 5200860759927420069, guid: 11f3fc943737f0246a6ada1e7b9fb943, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f38ccb472c0eef142bcc1d110ebf3540, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f3fc943737f0246a6ada1e7b9fb943, type: 3}
 --- !u!1001 &5200860760642860608
