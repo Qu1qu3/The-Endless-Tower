@@ -6,6 +6,7 @@ public class Porta : AltarInteraction
 {
     private MeshRenderer rend;
     private MeshCollider coll;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,10 @@ public class Porta : AltarInteraction
     {
         rend.enabled = false;
         coll.enabled = false;
+        audioSource.pitch = 0.5f;
+        audioSource.volume = 0.5f;
+        audioSource.Play();
+
     }
 
     public override void getOff()
