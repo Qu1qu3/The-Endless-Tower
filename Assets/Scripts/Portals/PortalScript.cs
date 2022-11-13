@@ -25,6 +25,7 @@ public class PortalScript : MonoBehaviour
     }
     void Start()
     {
+        getOwnCollider();
         player = GameObject.Find("Mage");
         
         playerCam = Camera.main;
