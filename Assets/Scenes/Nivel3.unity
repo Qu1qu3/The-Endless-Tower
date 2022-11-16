@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6961,6 +6961,10 @@ PrefabInstance:
       propertyPath: terrainBehind
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8977282847335612277, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: lMaskIgnore.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828444, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7078,6 +7082,10 @@ PrefabInstance:
       propertyPath: OtherPortalCam
       value: 
       objectReference: {fileID: 1094405821412459895, guid: e0953e6a6afa91c449579c2997a1b445, type: 3}
+    - target: {fileID: 8977282847335612277, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: lMaskIgnore.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828441, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Name
       value: PlanePortal
@@ -7264,6 +7272,10 @@ PrefabInstance:
       propertyPath: OtherPortalCam
       value: 
       objectReference: {fileID: 1094405821260909350, guid: e0953e6a6afa91c449579c2997a1b445, type: 3}
+    - target: {fileID: 8977282847335612277, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: lMaskIgnore.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828441, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Name
       value: PlanePortal
@@ -7361,6 +7373,10 @@ PrefabInstance:
       propertyPath: terrainBehind
       value: 
       objectReference: {fileID: 1154017643}
+    - target: {fileID: 8977282847335612277, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: lMaskIgnore.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828444, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7485,6 +7501,10 @@ PrefabInstance:
       propertyPath: terrainBehind
       value: 
       objectReference: {fileID: 1209499457}
+    - target: {fileID: 8977282847335612277, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: lMaskIgnore.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828444, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7577,6 +7597,10 @@ PrefabInstance:
     - target: {fileID: 8977282847335612277, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: terrainBehind
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977282847335612277, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: lMaskIgnore.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 8977282848527828444, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7869,6 +7893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4363698898746814566}
   - component: {fileID: 8541298491579818146}
+  - component: {fileID: 8541298491579818147}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -7886,6 +7911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4363698898234765049}
   - component: {fileID: 8541298490010713661}
+  - component: {fileID: 8541298490010713662}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -7903,6 +7929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4363698897915580710}
   - component: {fileID: 8541298490731741666}
+  - component: {fileID: 8541298490731741667}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -7920,6 +7947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4363698897829086762}
   - component: {fileID: 8541298490628445934}
+  - component: {fileID: 8541298490628445935}
   m_Layer: 0
   m_Name: Area Light
   m_TagString: Untagged
@@ -8233,6 +8261,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8541298490010713662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468122793633428316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!108 &8541298490628445934
 Light:
   m_ObjectHideFlags: 0
@@ -8295,6 +8343,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8541298490628445935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468122794039090063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!108 &8541298490731741666
 Light:
   m_ObjectHideFlags: 0
@@ -8357,6 +8425,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8541298490731741667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468122793952595075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!108 &8541298491579818146
 Light:
   m_ObjectHideFlags: 0
@@ -8419,3 +8507,23 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8541298491579818147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468122793121312195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}

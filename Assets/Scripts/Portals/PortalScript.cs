@@ -18,6 +18,10 @@ public class PortalScript : MonoBehaviour
 
     private bool isOpen;
     Rigidbody playerRbody;
+
+    [SerializeField]
+    private LayerMask lMaskIgnore = 10;
+    private int lMask;    
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,6 +29,10 @@ public class PortalScript : MonoBehaviour
     }
     void Start()
     {
+        lMask = (1 << lMaskIgnore);
+        lMask = ~lMask;
+        transform.Find("CameraPortal").gameObject.GetComponent<Camera>().cullingMask = lMask;
+
         getOwnCollider();
         player = GameObject.Find("Mage");
         
