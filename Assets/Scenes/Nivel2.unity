@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6026688580270363956, guid: 49685820041391542a579c7d68d3d70a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.2
+      value: -33.101
       objectReference: {fileID: 0}
     - target: {fileID: 6026688580270363956, guid: 49685820041391542a579c7d68d3d70a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6026688580270363956, guid: 49685820041391542a579c7d68d3d70a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.6
+      value: 27.677
       objectReference: {fileID: 0}
     - target: {fileID: 6026688580270363956, guid: 49685820041391542a579c7d68d3d70a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1397,6 +1397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LamparaRosa (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3777301226236059821, guid: ebbfb05bfb735204798fa4fb76fa1548, type: 3}
+      propertyPath: m_Intensity
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5239108667443424141, guid: ebbfb05bfb735204798fa4fb76fa1548, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1821,6 +1825,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3380253911740005848, guid: 6e84827975e29f64db232d4501741691, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b58c35fc92945445be554dacd142777, type: 2}
     - target: {fileID: 6964753547491532637, guid: 6e84827975e29f64db232d4501741691, type: 3}
       propertyPath: m_Name
       value: pilar (2)
