@@ -10,6 +10,7 @@ public class PiedraNivel2 : Interactable
     void Start()
     {   
         player = GameObject.Find("Mage").GetComponent<FPSController>();
+        panelImagen = transform.Find("DialogoPiedra").gameObject;
     }
 
     // Update is called once per frame
@@ -19,8 +20,7 @@ public class PiedraNivel2 : Interactable
         player.canShoot1 = true;
         player.canShoot2 = true;
 
-        panelImagen = transform.Find("DialogoPiedra/Panel").gameObject;
-        Debug.Log(transform.Find("DialogoPiedra/Panel"));
+        
         panelImagen.SetActive(true);
     }
 }
