@@ -5,6 +5,7 @@ using UnityEngine;
 public class PiedraNivel2 : Interactable
 {
     FPSController player;
+    GameObject panelImagen;
     // Start is called before the first frame update
     void Start()
     {   
@@ -17,5 +18,9 @@ public class PiedraNivel2 : Interactable
         //Debug.Log ("Portal Triggering Mal");
         player.canShoot1 = true;
         player.canShoot2 = true;
+
+        panelImagen = transform.Find("DialogoPiedra/Panel").gameObject;
+        Debug.Log(transform.Find("DialogoPiedra/Panel"));
+        panelImagen.SetActive(true);
     }
 }
