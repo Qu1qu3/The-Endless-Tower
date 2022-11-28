@@ -65,7 +65,7 @@ public class Laser : MonoBehaviour
 
                 Vector3 LocalDir = portal.transform.InverseTransformDirection(direction);
                 Vector3 OtherDir = portalScript.OtherPortal.transform.TransformDirection(-new Vector3(LocalPos.x, -LocalPos.y, LocalPos.z));
-                OtherDir = Quaternion.FromToRotation(portal.transform.rotation, portalScript.OtherPortal.transform.rotation);
+                //OtherDir = Quaternion.FromToRotation(portal.transform.rotation, portalScript.OtherPortal.transform.rotation);
                 if(OtherLaser == null)
                 {
                     OtherLaser = Instantiate(LaserPrefab, transform.position, transform.rotation, transform);
