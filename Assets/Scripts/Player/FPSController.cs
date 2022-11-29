@@ -70,6 +70,8 @@ public class FPSController : MonoBehaviour {
         {   
             cam.transform.Rotate(-v,0,0);
         }
+        playerInteract.UpdateRay(isHolding);
+        
     }
     void FixedUpdate()
     {

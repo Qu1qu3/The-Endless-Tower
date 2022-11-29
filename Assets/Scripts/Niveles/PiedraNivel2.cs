@@ -5,6 +5,7 @@ using TMPro;
 
 public class PiedraNivel2 : Interactable
 {
+    public string desc = "Interact ";
     FPSController player;
     GameObject PilarPiedra;
     GameObject contenedorTexto;
@@ -12,7 +13,8 @@ public class PiedraNivel2 : Interactable
     TMP_Text texto;
     // Start is called before the first frame update
     void Start()
-    {   
+    {
+        SetDescription(desc);
         player = GameObject.Find("Mage").GetComponent<FPSController>();
         PilarPiedra = GameObject.Find("PilarAux");
         //panelImagen = transform.Find("PilarPiedra/DialogoPiedra");

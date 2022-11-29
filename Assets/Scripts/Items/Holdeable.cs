@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Holdeable : Interactable
 {
+    public string desc = "Grab item ";
     // Start is called before the first frame update
     [SerializeField] Transform holdArea;
     private FPSController player;
@@ -15,6 +16,7 @@ public class Holdeable : Interactable
 
     void Start()
     {
+        SetDescription(desc);
         canBeHolded = true;
         holdArea = GameObject.Find("holdObj").transform;
         player = GameObject.Find("Mage").GetComponent<FPSController>();
