@@ -26,9 +26,10 @@ public class PiedraNivel2 : Interactable
 
     public void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Return) && historia.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && historia.activeSelf)
         {
             historia.SetActive(false);
+            player.activeHist = false;
         }
     }
 
@@ -41,7 +42,8 @@ public class PiedraNivel2 : Interactable
         if (historia != null)
         {
             historia.SetActive(true);
-            texto.SetText("ALELUYA");
+            player.activeHist = true;
+            texto.SetText("Recuerdas que se pueden hacer portales con los clicks del ratón");
         }
     }
 }

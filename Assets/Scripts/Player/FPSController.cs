@@ -8,7 +8,7 @@ public class FPSController : MonoBehaviour {
     public float drag = 240f;
     public bool lockCursor;
     public float mouseSensitivity = 10;
-
+    public bool activeHist { get; set; }
     private bool isHolding;
     private Holdeable holdingObject;
 
@@ -47,7 +47,7 @@ public class FPSController : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-
+        activeHist = false;
         Rbody = GetComponent<Rigidbody>();
         puntoMedio = (GameObject.Find("LayoutPasado").transform.position.x + GameObject.Find("Layout").transform.position.x)/2;
         
@@ -70,7 +70,8 @@ public class FPSController : MonoBehaviour {
         {   
             cam.transform.Rotate(-v,0,0);
         }
-        playerInteract.UpdateRay(isHolding);
+        playerInteract.UpdateRay(isHolding || activeHist);
+
         
     }
     void FixedUpdate()
