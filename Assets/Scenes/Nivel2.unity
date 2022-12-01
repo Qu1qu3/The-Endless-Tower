@@ -2092,8 +2092,12 @@ PrefabInstance:
       value: LamparaRosa (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3777301226236059821, guid: ebbfb05bfb735204798fa4fb76fa1548, type: 3}
+      propertyPath: m_Range
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3777301226236059821, guid: ebbfb05bfb735204798fa4fb76fa1548, type: 3}
       propertyPath: m_Intensity
-      value: 40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5239108667443424141, guid: ebbfb05bfb735204798fa4fb76fa1548, type: 3}
       propertyPath: m_Materials.Array.data[0]
