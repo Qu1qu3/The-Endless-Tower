@@ -14,11 +14,14 @@ public class Laser : MonoBehaviour
     public GameObject LaserPrefab;
     private GameObject OtherLaser;
     private Laser OtherLaserScript;
-    public bool summoning;
+    private bool summoning;
+    public bool getting;
+    private LaserGetter lasGet;
 
     // Start is called before the first frame update
     void Start()
     {
+        getting = false;
         summoning = false;
         lr = GetComponent<LineRenderer>();
         lMask = 1 << 20;
@@ -64,16 +67,17 @@ public class Laser : MonoBehaviour
                 Vector3 OtherPos = portalScript.OtherPortal.transform.TransformPoint(-new Vector3(LocalPos.x, -LocalPos.y, LocalPos.z));
 
                 Vector3 LocalDir = portal.transform.InverseTransformDirection(direction);
-                Vector3 OtherDir = portalScript.OtherPortal.transform.TransformDirection(-new Vector3(LocalPos.x, -LocalPos.y, LocalPos.z));
-                //OtherDir = Quaternion.FromToRotation(portal.transform.rotation, portalScript.OtherPortal.transform.rotation);
+                Vector3 OtherDir = portalScript.OtherPortal.transform.TransformDirection(-new Vector3(LocalDir.x, -LocalDir.y, LocalDir.z));
+                //OtherDir = direction * Quaternion.FromToRotation(portal.transform.eulerAngles , portalScript.OtherPortal.transform.eulerAngles );
                 if(OtherLaser == null)
                 {
                     OtherLaser = Instantiate(LaserPrefab, transform.position, transform.rotation, transform);
                     OtherLaserScript = OtherLaser.GetComponent<Laser>();
                     summoning = true;
                 }
-                Debug.Log(OtherLaser);
+                //Debug.Log(OtherLaser);
                 OtherLaserScript.setPosAndDir(OtherPos, OtherDir);
+               //OtherLaserScript.setPosAndDir(OtherPos, portalScript.OtherPortal.transform.forward);
             }
             else //if(OtherLaser != null)
             {
@@ -81,6 +85,27 @@ public class Laser : MonoBehaviour
                 OtherLaserScript = null;
                 summoning = false;
             }
+
+            if(hit.transform.tag == "LaserGetter")
+            {
+                lasGet = hit.transform.gameObject.GetComponent<LaserGetter>();
+                if(!getting)
+                {
+                    getting = true;
+                    lasGet.getOn();
+                }
+                
+                
+            }
+            else
+            {
+                if(getting)
+                {
+                    getting = false;
+                    lasGet.getOff();
+                }
+            }
+
 
         }
         else lr.SetPosition(1, direction * 5000);
