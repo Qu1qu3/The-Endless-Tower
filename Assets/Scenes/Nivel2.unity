@@ -1699,6 +1699,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 811981160, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 811981160, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: PilarPiedra
+      value: 
+      objectReference: {fileID: 1085347133}
+    - target: {fileID: 811981160, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: panelImagen
       value: 
       objectReference: {fileID: 33344119}
@@ -1749,6 +1757,34 @@ PrefabInstance:
     - target: {fileID: 6929474553225493495, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: m_Name
       value: PilarPiedra
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467189292683680206, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999619
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467189292683680206, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.001946311
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467189292683680206, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.007988093
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467189292683680206, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0029285299
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467189292683680206, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.226
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467189292683680206, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0.915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467189292683680206, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.334
       objectReference: {fileID: 0}
     - target: {fileID: 8641252947829839689, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1872,7 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Siuuu
-  desc: Interact
+  PilarPiedra: {fileID: 0}
 --- !u!1 &546100200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,6 +3487,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 811981160, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 811981160, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: panelImagen
       value: 
       objectReference: {fileID: 33344119}
@@ -4551,7 +4591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1174661574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6449,7 +6489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Siuuu
-  desc: Interact
+  PilarPiedra: {fileID: 0}
 --- !u!1 &1871668020
 GameObject:
   m_ObjectHideFlags: 0
@@ -7199,7 +7239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1945891293
 RectTransform:
   m_ObjectHideFlags: 0

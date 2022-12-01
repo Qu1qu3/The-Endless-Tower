@@ -5,18 +5,17 @@ using TMPro;
 
 public class PiedraNivel2 : Interactable
 {
-    public string desc = "Interact ";
     FPSController player;
-    GameObject PilarPiedra;
+    public GameObject PilarPiedra;
     GameObject contenedorTexto;
     GameObject historia;
     TMP_Text texto;
     // Start is called before the first frame update
     void Start()
     {
-        SetDescription(desc);
         player = GameObject.Find("Mage").GetComponent<FPSController>();
-        PilarPiedra = GameObject.Find("PilarAux");
+        PilarPiedra = transform.root.gameObject;
+        Debug.Log(PilarPiedra);
         //panelImagen = transform.Find("PilarPiedra/DialogoPiedra");
 
         historia = PilarPiedra.transform.Find("ParaDialogo/Historia").gameObject;
@@ -43,7 +42,7 @@ public class PiedraNivel2 : Interactable
         {
             historia.SetActive(true);
             player.activeHist = true;
-            texto.SetText("Recuerdas que se pueden hacer portales con los clicks del ratón");
+            texto.SetText("Recuerdas que se pueden hacer portales con los clicks del ratÃ³n");
         }
     }
 }
