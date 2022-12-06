@@ -6,7 +6,7 @@ using TMPro;
 public class PiedraNivel2 : Interactable
 {
     FPSController player;
-    public GameObject PilarPiedra;
+    private GameObject PilarPiedra;
     GameObject contenedorTexto;
     GameObject historia;
     TMP_Text texto;
