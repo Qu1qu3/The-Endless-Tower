@@ -11,15 +11,25 @@ public class Holdeable : Interactable
     public bool isHolded;
     public bool canBeHolded;
     Rigidbody rb;
+    public Material[] originalMaterials;
+    private Material newMat;
+    Renderer meshRenderer;
+    private CapsuleCollider playerColider;
+    private Collider thisCollider;
 
     public float pickUpForce = 150.0f;
 
     void Start()
     {
+        thisCollider = GetComponent<Collider>();
+        newMat = Resources.Load<Material>("Material/blueTransparent");
+        meshRenderer = GetComponent<Renderer>();
+        originalMaterials = meshRenderer.materials;
         SetDescription(desc);
         canBeHolded = true;
         holdArea = GameObject.Find("holdObj").transform;
         player = GameObject.Find("Mage").GetComponent<FPSController>();
+        playerColider = player.GetComponent<CapsuleCollider>();
         isHolded = false;
         rb = GetComponent<Rigidbody>();
     }
@@ -40,6 +50,9 @@ public class Holdeable : Interactable
         transform.parent = null;
         rb.velocity = Vector3.zero;
         player.stopHolding();
+
+        meshRenderer.materials = originalMaterials;
+        Physics.IgnoreCollision(playerColider, thisCollider, false);
     }
     public void startHolding()
     {
@@ -52,6 +65,10 @@ public class Holdeable : Interactable
         transform.parent = holdArea;
         player.hold(this);
 
+        var materialsCopy = meshRenderer.materials;
+        materialsCopy[0] = newMat;
+        meshRenderer.materials = materialsCopy;
+        Physics.IgnoreCollision(playerColider, thisCollider, true);
     }
     void Update()
     {
