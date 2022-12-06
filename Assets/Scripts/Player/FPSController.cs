@@ -40,6 +40,7 @@ public class FPSController : MonoBehaviour {
         jumpCheck = transform.Find("jumpCheck").gameObject;
         isHolding = false;
         holdingObject = null;
+        playerInteract.Initialize();
         playerPortal.Initialize();
         playerPortalPasado.Initialize();
         cam = Camera.main;

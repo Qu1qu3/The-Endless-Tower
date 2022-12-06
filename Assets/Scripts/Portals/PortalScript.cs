@@ -73,10 +73,10 @@ public class PortalScript : MonoBehaviour
             Vector3 PlayerFromPortal = transform.InverseTransformPoint(player.transform.position);
             
 
-            if(PlayerFromPortal.z <= 0.015)
+            if(PlayerFromPortal.z < 0.015)
             {
                 Quaternion ftoR = Quaternion.FromToRotation(transform.forward, OtherPortal.transform.forward);
-                if(ftoR == new Quaternion(1f,0f,0f,0f)) ftoR = new Quaternion(0f,1f,0f,0f);
+                //if(ftoR == new Quaternion(1f,0f,0f,0f)) ftoR = new Quaternion(0f,1f,0f,0f);
                 Vector3 vel = -playerRbody.velocity;
                 Vector3 vel2 = -transform.InverseTransformDirection(playerRbody.velocity);
                 /*player.transform.position = OtherPortal.position + new Vector3(-PlayerFromPortal.x,

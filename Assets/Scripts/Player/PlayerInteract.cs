@@ -7,12 +7,13 @@ using TMPro;
 public class PlayerInteract
 {   
     public float distanceInteract = 3f;
-    private LayerMask mask;
     public TextMeshProUGUI interactionText;
     public GameObject interactionUI;
     public void Initialize()
     {
-        mask = LayerMask.GetMask("Interactable"); 
+        interactionUI = GameObject.Find("Mage/Einteract/InteractionUI");
+        Debug.Log(interactionUI + "aaaaaaaaaaaaaaaaaaa");
+        interactionText = interactionUI.transform.Find("InteractionText").gameObject.GetComponent<TextMeshProUGUI>();
     }
     // Start is called before the first frame update
     public void tryToInteract()
