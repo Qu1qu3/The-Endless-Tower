@@ -1148,6 +1148,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2475712222850093300, guid: 11f3fc943737f0246a6ada1e7b9fb943, type: 3}
+      propertyPath: canShoot1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475712222850093300, guid: 11f3fc943737f0246a6ada1e7b9fb943, type: 3}
+      propertyPath: canShoot2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475712222850093300, guid: 11f3fc943737f0246a6ada1e7b9fb943, type: 3}
+      propertyPath: canShootP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475712222850093300, guid: 11f3fc943737f0246a6ada1e7b9fb943, type: 3}
       propertyPath: playerPortal.Portal1
       value: 
       objectReference: {fileID: 1094405821143100738}
