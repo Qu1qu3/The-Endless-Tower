@@ -6,7 +6,7 @@ using TMPro;
 public class PiedraNivel2 : Interactable
 {
     FPSController player;
-    private GameObject PilarPiedra;
+    GameObject PilarPiedra;
     GameObject contenedorTexto;
     GameObject historia;
     TMP_Text texto;
@@ -25,7 +25,7 @@ public class PiedraNivel2 : Interactable
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && historia.activeSelf)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return)) && historia.activeSelf)
         {
             historia.SetActive(false);
             player.activeHist = false;

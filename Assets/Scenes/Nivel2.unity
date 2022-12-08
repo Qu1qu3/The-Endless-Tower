@@ -1814,6 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Siuuu
+  PilarPiedra: {fileID: 0}
 --- !u!1 &546100200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,6 +3059,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 811981160, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: description
+      value: Interactuar
+      objectReference: {fileID: 0}
+    - target: {fileID: 811981160, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: panelImagen
       value: 
       objectReference: {fileID: 33344119}
@@ -3970,6 +3975,14 @@ PrefabInstance:
     - target: {fileID: 3730397455154713484, guid: bb69993deef7a614281770d924dfb0da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769426875693092753, guid: bb69993deef7a614281770d924dfb0da, type: 3}
+      propertyPath: desc
+      value: Coger objeto
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769426875693092753, guid: bb69993deef7a614281770d924dfb0da, type: 3}
+      propertyPath: description
+      value: Coger objeto
       objectReference: {fileID: 0}
     - target: {fileID: 4075432293415831862, guid: bb69993deef7a614281770d924dfb0da, type: 3}
       propertyPath: m_Name
@@ -5584,6 +5597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: Siuuu
+  PilarPiedra: {fileID: 0}
 --- !u!1 &1871668020
 GameObject:
   m_ObjectHideFlags: 0
@@ -6586,12 +6600,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b53b4080c0e7d46b58d2a804e6b4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Siuuu
-  desc: Grab item
+  description: Coger objeto
+  desc: Coger objeto
   holdArea: {fileID: 0}
   isHolded: 0
   canBeHolded: 0
   originalMaterials: []
+  lerpDuration: 0.5
   pickUpForce: 20
 --- !u!1001 &1962802214
 PrefabInstance:
