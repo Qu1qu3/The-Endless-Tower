@@ -16,6 +16,7 @@ public class Holdeable : Interactable
     Renderer meshRenderer;
     private CapsuleCollider playerColider;
     private Collider thisCollider;
+    public float lerpDuration = 0.5f;
 
     public float pickUpForce = 150.0f;
 
@@ -51,7 +52,8 @@ public class Holdeable : Interactable
         rb.velocity = Vector3.zero;
         player.stopHolding();
 
-        meshRenderer.materials = originalMaterials;
+        //meshRenderer.materials = originalMaterials;
+        StartCoroutine(Lerp(1f,0f));
         Physics.IgnoreCollision(playerColider, thisCollider, false);
     }
     public void startHolding()
@@ -65,9 +67,10 @@ public class Holdeable : Interactable
         transform.parent = holdArea;
         player.hold(this);
 
-        var materialsCopy = meshRenderer.materials;
-        materialsCopy[0] = newMat;
-        meshRenderer.materials = materialsCopy;
+        //var materialsCopy = meshRenderer.materials;
+        //materialsCopy[0] = newMat;
+        //meshRenderer.materials = materialsCopy;
+        StartCoroutine(Lerp(0f,1f));
         Physics.IgnoreCollision(playerColider, thisCollider, true);
     }
     void Update()
@@ -85,6 +88,21 @@ public class Holdeable : Interactable
     }
 
     public void setCanBeHolded(bool b)
-    {canBeHolded = b;
+    {
+        canBeHolded = b;
+    }
+
+    IEnumerator Lerp(float startValue, float endValue)
+    {
+        float timeElapsed = 0;
+        float slider;
+        while (timeElapsed < lerpDuration)
+        {
+            slider = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
+            meshRenderer.material.SetFloat("_SliderOn", slider);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        slider = endValue;
     }
 }
