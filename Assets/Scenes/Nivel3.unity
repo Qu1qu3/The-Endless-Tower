@@ -3979,6 +3979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puerta
       objectReference: {fileID: 0}
+    - target: {fileID: 4253201161271882737, guid: 69822adf5de04d645998e411ea60b680, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5af93538a9b3d2545a3224fdb9258b29, type: 2}
     - target: {fileID: 4253201161271882740, guid: 69822adf5de04d645998e411ea60b680, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5331,7 +5335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4639360ffe172546b8e0e8c4d83bf9d, type: 2}
+  - {fileID: 2100000, guid: cf007f9f70b84f34eaa924e7e84d372e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
