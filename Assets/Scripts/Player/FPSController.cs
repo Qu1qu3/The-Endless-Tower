@@ -36,6 +36,9 @@ public class FPSController : MonoBehaviour {
     Vector3 moveDirection;
     private bool isGround;
 
+    private GameObject Mago;
+    private GameObject CanvasPausa;
+
     void Start () {
         jumpCheck = transform.Find("jumpCheck").gameObject;
         isHolding = false;
@@ -51,10 +54,33 @@ public class FPSController : MonoBehaviour {
         activeHist = false;
         Rbody = GetComponent<Rigidbody>();
         puntoMedio = (GameObject.Find("LayoutPasado").transform.position.x + GameObject.Find("Layout").transform.position.x)/2;
-        
+
+        Mago = transform.root.gameObject;
+        CanvasPausa = Mago.transform.Find("PausaCanvas/MenuPausa").gameObject;
     }
 
     void Update () {
+        if ((Input.GetKeyDown(KeyCode.M)))
+        {
+            CanvasPausa.SetActive(!CanvasPausa.activeSelf);
+        }
+        if (CanvasPausa.activeSelf)
+        {
+            //Continuar
+            if ((Input.GetKeyDown(KeyCode.C)))
+            {
+                CanvasPausa.SetActive(false);
+            }
+            //Salir
+            else if (Input.GetKeyDown(KeyCode.X))
+            {
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #endif
+                Application.Quit();
+            }
+        }
+
         isPasado = transform.position.x < puntoMedio;
         isGround = Physics.SphereCast(transform.position, 0.3f, Vector3.down, out RaycastHit hit, 1.2f);
         readInput();
@@ -97,22 +123,28 @@ public class FPSController : MonoBehaviour {
     }
     void movePlayer()
     {
-        //Debug.Log (moveDirection.normalized, Rbody);
-        moveDirection = transform.forward * Input.  GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
-        if (isGround) applyDrag(-Rbody.velocity);
-        
-        //if(moveDirection.x == 0f) Rbody.velocity = new Vector3(0f, Rbody.velocity.y, Rbody.velocity.z);
-        //if(moveDirection.z == 0f) Rbody.velocity = new Vector3(Rbody.velocity.x, Rbody.velocity.y, 0f);
-        Vector2 velocitySides = new Vector2(Rbody.velocity.x, Rbody.velocity.z);
-        if(velocitySides.magnitude > 3f)
+        if (CanvasPausa.activeSelf)
         {
-            multVel2 = 0.5f;
-            //velocitySides = Vector2.ClampMagnitude(velocitySides, 3f);
-            //Rbody.velocity = new Vector3(velocitySides.x,Rbody.velocity.y,velocitySides.y);
+            Rbody.velocity = new Vector3(0, 0, 0);
         }
-        else multVel2 = 1f;
-        Rbody.AddForce(moveDirection.normalized * velocidad * multVel * multVel2 *multAir, ForceMode.VelocityChange );
+        else
+        {
+            //Debug.Log (moveDirection.normalized, Rbody);
+            moveDirection = transform.forward * Input.  GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
+            if (isGround) applyDrag(-Rbody.velocity);
         
+            //if(moveDirection.x == 0f) Rbody.velocity = new Vector3(0f, Rbody.velocity.y, Rbody.velocity.z);
+            //if(moveDirection.z == 0f) Rbody.velocity = new Vector3(Rbody.velocity.x, Rbody.velocity.y, 0f);
+            Vector2 velocitySides = new Vector2(Rbody.velocity.x, Rbody.velocity.z);
+            if(velocitySides.magnitude > 3f)
+            {
+                multVel2 = 0.5f;
+                //velocitySides = Vector2.ClampMagnitude(velocitySides, 3f);
+                //Rbody.velocity = new Vector3(velocitySides.x,Rbody.velocity.y,velocitySides.y);
+            }
+            else multVel2 = 1f;
+            Rbody.AddForce(moveDirection.normalized * velocidad * multVel * multVel2 *multAir, ForceMode.VelocityChange );
+        }
     }
 
     private void shootPortal(int p)
