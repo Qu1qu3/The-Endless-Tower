@@ -7639,6 +7639,10 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 1752455576}
+    - target: {fileID: 1390615884358814704, guid: d7ae854ae94c4f24a872eb6c12ee411b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8059687312288902146, guid: d7ae854ae94c4f24a872eb6c12ee411b, type: 3}
       propertyPath: OtherPortal
       value: 
@@ -7850,6 +7854,22 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 1288012990}
+    - target: {fileID: 2398564081305278337, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398564081305278350, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398564081631096876, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398564081631096878, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6763525369304494202, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
       propertyPath: m_Name
       value: Portal1
@@ -8559,6 +8579,10 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 1786013120}
+    - target: {fileID: 5257553817670875057, guid: ab02adaaee059cf48aa9a274d5a2c0dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab02adaaee059cf48aa9a274d5a2c0dd, type: 3}
 --- !u!1001 &5326999044316608030
@@ -8636,6 +8660,10 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 1516245111}
+    - target: {fileID: 5326999044572704816, guid: 457fde649cd391246ae6c0a40288540a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 457fde649cd391246ae6c0a40288540a, type: 3}
 --- !u!33 &5327705949234457016

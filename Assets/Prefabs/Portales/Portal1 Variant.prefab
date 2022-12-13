@@ -159,9 +159,13 @@ PrefabInstance:
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.m_NumColorKeys
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4846794137664981381, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
+      propertyPath: m_Layer
+      value: 29
+      objectReference: {fileID: 0}
     - target: {fileID: 8977282847335612275, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_Name
-      value: Portal1
+      value: Portal1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8977282847335612276, guid: 7a4f7482c88443f41b926d3797626765, type: 3}
       propertyPath: m_RootOrder

@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 185071118}
   - component: {fileID: 185071117}
   - component: {fileID: 185071116}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2709,7 +2709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1945891293, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.69999695
+      value: 0.7000122
       objectReference: {fileID: 0}
     - target: {fileID: 6929474553225493488, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: m_RootOrder
@@ -6282,6 +6282,10 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 225484583}
+    - target: {fileID: 6267936226523679019, guid: d7ae854ae94c4f24a872eb6c12ee411b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8059687312288902146, guid: d7ae854ae94c4f24a872eb6c12ee411b, type: 3}
       propertyPath: OtherPortal
       value: 
@@ -6510,6 +6514,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6763525369304494205, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275902058940618069, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

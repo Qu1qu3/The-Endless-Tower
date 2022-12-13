@@ -19,6 +19,7 @@ public class PortalScript : MonoBehaviour
     private bool isOpen;
     Rigidbody playerRbody;
 
+    public GameObject go;
     [SerializeField]
     private LayerMask lMaskIgnore = 10;
     private int lMask;    
@@ -29,10 +30,29 @@ public class PortalScript : MonoBehaviour
     }
     void Start()
     {
-        lMaskIgnore = 10;
-        lMask = (1 << lMaskIgnore);
-        lMask = ~lMask;
+        lMask = ~(0 << 32);
+        lMask &= ~(1 << 10);
         lMask &= ~(1 << 22);
+        switch(gameObject.name) 
+            {
+            case "Portal1":
+                // code block
+            case "Portal1Pasado":
+                lMask &= ~(1 << 29);
+                break;
+            case "Portal2":
+                // code block
+            case "Portal2Pasado":
+                lMask &= ~(1 << 30);
+                break;
+            case "PortalTiempo":
+                // code block
+            case "PortalTiempoPasado":
+                lMask &= ~(1 << 31);
+                break;
+            default:
+                break;
+            }
         transform.Find("CameraPortal").gameObject.GetComponent<Camera>().cullingMask = lMask;
 
         getOwnCollider();
@@ -41,6 +61,7 @@ public class PortalScript : MonoBehaviour
         playerCam = Camera.main;
         portalCam = GetComponentsInChildren<Camera>()[0];
         OtherPortalCam = OtherPortal.GetComponentsInChildren<Camera>()[0];
+        go = OtherPortal.Find("CylinderSG").gameObject;
         playerColider = player.GetComponent<CapsuleCollider>();
         isOpen = false;
         playerRbody = player.GetComponent<Rigidbody>();
@@ -145,6 +166,8 @@ public class PortalScript : MonoBehaviour
             terrainBehind = hit.collider.GetComponent<MeshCollider>();
         }
     }
+
+
     /*void setOldPos()
     {
         holdObjPlayer.localPosition = originalHoldPos;
