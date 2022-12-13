@@ -32,6 +32,7 @@ public class PortalScript : MonoBehaviour
         lMaskIgnore = 10;
         lMask = (1 << lMaskIgnore);
         lMask = ~lMask;
+        lMask &= ~(1 << 22);
         transform.Find("CameraPortal").gameObject.GetComponent<Camera>().cullingMask = lMask;
 
         getOwnCollider();
