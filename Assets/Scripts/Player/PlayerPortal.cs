@@ -63,8 +63,13 @@ public class PlayerPortal
                 PortalTiempoPasado.transform.position = Portal[p].transform.position + layoutDiff;
                 PortalTiempoPasado.transform.rotation = Portal[p].transform.rotation;
                 PortalTiempoPasado.getOwnCollider();
+
+                PortalTiempoPasado.setActive(true);
             }
-            
+
+            Portal[p].setActive(true);
+            Portal[p].checkOtherPortal();
+            Portal[p].OtherPortal.GetComponent<PortalScript>().checkOtherPortal();
         }
     }
 

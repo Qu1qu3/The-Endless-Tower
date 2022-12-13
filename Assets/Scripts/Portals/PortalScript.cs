@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PortalScript : MonoBehaviour
 {
+    
     public Transform OtherPortal;
+    private PortalScript oPS;
     private Camera playerCam;
     private Camera portalCam;
     private Camera OtherPortalCam;
     private GameObject player;
+    private GameObject cylinderCam;
+    public Vector3 initPos;
 
     private Transform holdObjPlayer;
     private Vector3 originalHoldPos;
@@ -19,6 +23,7 @@ public class PortalScript : MonoBehaviour
     private bool isOpen;
     Rigidbody playerRbody;
 
+    public bool isActive = false;
     public GameObject go;
     [SerializeField]
     private LayerMask lMaskIgnore = 10;
@@ -54,7 +59,7 @@ public class PortalScript : MonoBehaviour
                 break;
             }
         transform.Find("CameraPortal").gameObject.GetComponent<Camera>().cullingMask = lMask;
-
+        cylinderCam = transform.Find("Cylinder").gameObject;
         getOwnCollider();
         player = GameObject.Find("Mage");
         
@@ -65,7 +70,7 @@ public class PortalScript : MonoBehaviour
         playerColider = player.GetComponent<CapsuleCollider>();
         isOpen = false;
         playerRbody = player.GetComponent<Rigidbody>();
-        
+        oPS = OtherPortal.GetComponent<PortalScript>();
         //holdObjPlayer = GameObject.Find("holdObj").transform;
         //originalHoldPos = holdObjPlayer.localPosition;
     }
@@ -138,7 +143,7 @@ public class PortalScript : MonoBehaviour
         if(distVec < 0.9f) 
         {
             isOpen = true;
-            Physics.IgnoreCollision(playerColider, terrainBehind, true);
+            if(oPS.getActive()) Physics.IgnoreCollision(playerColider, terrainBehind, true);
         }
         else if(isOpen) 
         {
@@ -167,7 +172,26 @@ public class PortalScript : MonoBehaviour
         }
     }
 
+    public void setActive(bool t)
+    {
+        isActive = t;
+    }
 
+    public bool getActive()
+    {
+        return isActive;
+    }
+
+    public void checkOtherPortal()
+    {
+        cylinderCam.SetActive(oPS.getActive());
+    }
+
+    public void delPortal()
+    {
+        transform.position = initPos;
+        setActive(false);
+    }
     /*void setOldPos()
     {
         holdObjPlayer.localPosition = originalHoldPos;

@@ -70,7 +70,13 @@ public class PlayerPortalPasado
             PortalFuturo[p].transform.rotation = Portal[p].transform.rotation;
             PortalFuturo[p].getOwnCollider();
             
-            
+            Portal[p].setActive(true);
+            Portal[p].checkOtherPortal();
+            Portal[p].OtherPortal.GetComponent<PortalScript>().checkOtherPortal();
+
+            PortalFuturo[p].setActive(true);
+            PortalFuturo[p].checkOtherPortal();
+            PortalFuturo[p].OtherPortal.GetComponent<PortalScript>().checkOtherPortal();
         }
     }
 
