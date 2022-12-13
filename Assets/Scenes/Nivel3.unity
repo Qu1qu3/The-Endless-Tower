@@ -6516,6 +6516,10 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 897202133}
+    - target: {fileID: 2398564081305278350, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6763525369304494202, guid: 8ea1f43fe79ea4044b9d9fbf340a0d3d, type: 3}
       propertyPath: m_Name
       value: Portal1
