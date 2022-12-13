@@ -30,16 +30,16 @@ TagManager:
   - 
   - Player
   - 
+  - VFXPortal
   - 
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Portal1SG
+  - Portal2SG
+  - PortalTSG
   m_SortingLayers:
   - name: Default
     uniqueID: 0
