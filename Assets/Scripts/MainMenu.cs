@@ -22,4 +22,9 @@ public class MainMenu : MonoBehaviour
     {
         audioMixer.SetFloat("VolumenMusica",Mathf.Log10(sliderMusica)*20);
     }
+    public void Continue(FPSController player)
+    {
+        player.canShoot1 = true;
+        player.canShoot2 = true;
+    }
 }
