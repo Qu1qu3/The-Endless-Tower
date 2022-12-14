@@ -64,11 +64,13 @@ public class PlayerPortalPasado
             //Debug.Log("TrueH " + hit.normal.y); 
             Portal[p].transform.position = hit.point + Portal[p].transform.forward * 0.001f;
             Portal[p].terrainBehind = hit.collider.GetComponent<MeshCollider>();
+            Portal[p].getColl();
 
             //Mover Portal del futuro
             PortalFuturo[p].transform.position = Portal[p].transform.position - layoutDiff;
             PortalFuturo[p].transform.rotation = Portal[p].transform.rotation;
             PortalFuturo[p].getOwnCollider();
+            PortalFuturo[p].getColl();
             
             Portal[p].setActive(true);
             Portal[p].checkOtherPortal();
