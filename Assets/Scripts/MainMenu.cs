@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
-    // Start is called before the first frame update
     public void playgame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
@@ -22,9 +21,9 @@ public class MainMenu : MonoBehaviour
     {
         audioMixer.SetFloat("VolumenMusica",Mathf.Log10(sliderMusica)*20);
     }
-    public void Continue(FPSController player)
+    public void returnToMenu()
     {
-        player.canShoot1 = true;
-        player.canShoot2 = true;
+        SceneManager.LoadScene(0);
     }
+
 }
