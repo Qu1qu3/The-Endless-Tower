@@ -3053,6 +3053,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2318886281780542336, guid: eba8e8956d6e1fa44b63349f08a558d7, type: 3}
   m_PrefabInstance: {fileID: 1396002779}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &559041827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5729377818706995764, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+  m_PrefabInstance: {fileID: 8739118608408115861}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &570522719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15993,6 +16004,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1383100392266487659, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: continueButton
+      value: 
+      objectReference: {fileID: 559041827}
+    - target: {fileID: 1383100392266487659, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: playerPortal.Portal1
       value: 
       objectReference: {fileID: 1769003502}
@@ -16035,6 +16050,14 @@ PrefabInstance:
     - target: {fileID: 1571872197611248793, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: m_SizeDelta.x
       value: 144.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523903419712465439, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523903419712465439, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2813459922356997657, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: m_SizeDelta.x

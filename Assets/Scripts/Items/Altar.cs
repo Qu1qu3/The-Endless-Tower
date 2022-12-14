@@ -6,6 +6,7 @@ public class Altar : MonoBehaviour
 {
 
     [SerializeField] private GameObject Cube;
+    public CaminoRunas runes;
     private Transform posCube;
     private Holdeable holdCube;
     private Rigidbody rbCube;
@@ -81,6 +82,7 @@ public class Altar : MonoBehaviour
         rbCube = null;
         Cube = null;
         lightA.SetActive(false);
+        if(runes) runes.setRunas(0);
     }
     private void moveToCenter()
     {
@@ -95,6 +97,7 @@ public class Altar : MonoBehaviour
             isCentered = true;
             lightA.SetActive(true);
             interactionable.getOn();
+            if(runes) runes.setRunas(1);
         }
     }
 
