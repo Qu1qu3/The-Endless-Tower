@@ -540,7 +540,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OtherPortal: {fileID: 0}
+  initPos: {x: 0, y: 0, z: 0}
   terrainBehind: {fileID: 0}
+  terrainBehind2: {fileID: 0}
+  isActive: 0
   go: {fileID: 0}
   lMaskIgnore:
     serializedVersion: 2

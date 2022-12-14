@@ -6,13 +6,13 @@ public class LaserThrower : MonoBehaviour
 {
     public GameObject Laser;
     private Laser LaserScript;
+    public bool isActive = true;
     // Start is called before the first frame update
     void Start()
     {
+        if(!isActive) return;
         GameObject LaserS = Instantiate(Laser, transform.position, transform.rotation, transform);
-        Debug.Log("a "+ LaserS);
         LaserScript = LaserS.GetComponent<Laser>();
-        Debug.Log("b "+ LaserScript);
         LaserScript.setPosAndDir(transform.position, transform.up);
         LaserScript.setSum(false);
     }
@@ -20,6 +20,7 @@ public class LaserThrower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isActive) return;
         LaserScript.setPosAndDir(transform.position, transform.forward);
     }
 }

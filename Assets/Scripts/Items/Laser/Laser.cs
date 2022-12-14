@@ -89,6 +89,7 @@ public class Laser : MonoBehaviour
             if(hit.transform.tag == "LaserGetter")
             {
                 lasGet = hit.transform.gameObject.GetComponent<LaserGetter>();
+                lasGet.UpdateOn();
                 if(!getting)
                 {
                     getting = true;

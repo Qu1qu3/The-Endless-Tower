@@ -56,6 +56,7 @@ public class PlayerPortal
             //Debug.Log("TrueH " + hit.normal.y); 
             Portal[p].transform.position = hit.point + Portal[p].transform.forward * 0.005f;
             Portal[p].terrainBehind = hit.collider.GetComponent<MeshCollider>();
+            Portal[p].getColl();
 
             //Portal del Tiempo
             if(p == 2)
@@ -63,6 +64,7 @@ public class PlayerPortal
                 PortalTiempoPasado.transform.position = Portal[p].transform.position + layoutDiff;
                 PortalTiempoPasado.transform.rotation = Portal[p].transform.rotation;
                 PortalTiempoPasado.getOwnCollider();
+                PortalTiempoPasado.getColl();
 
                 PortalTiempoPasado.setActive(true);
             }

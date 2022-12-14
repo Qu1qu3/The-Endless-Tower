@@ -18,6 +18,8 @@ public class PortalScript : MonoBehaviour
     private Vector3 originalHoldPos;
 
     public MeshCollider terrainBehind;
+    public Collider terrainSolid;
+
     private CapsuleCollider playerColider;
 
     private bool isOpen;
@@ -35,6 +37,7 @@ public class PortalScript : MonoBehaviour
     }
     void Start()
     {
+        terrainSolid = null;
         lMask = ~(0 << 32);
         lMask &= ~(1 << 10);
         lMask &= ~(1 << 22);
@@ -78,7 +81,6 @@ public class PortalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // Quaternion.Inverse(transform.rotation) *
         Quaternion direccion =  Quaternion.Inverse(transform.rotation) * Camera.main.transform.rotation;
             //Debug.Log (direccion.eulerAngles.x +"  "+ direccion.eulerAngles.y + 180+"  "+ direccion.eulerAngles.z); direccion.eulerAngles.x
@@ -143,12 +145,18 @@ public class PortalScript : MonoBehaviour
         if(distVec < 0.9f) 
         {
             isOpen = true;
-            if(oPS.getActive()) Physics.IgnoreCollision(playerColider, terrainBehind, true);
+            if(oPS.getActive())
+            {
+                Physics.IgnoreCollision(playerColider, terrainBehind, true);
+                if(terrainSolid) Physics.IgnoreCollision(playerColider, terrainSolid, true);
+            }
+
         }
         else if(isOpen) 
         {
             isOpen = false;
             Physics.IgnoreCollision(playerColider, terrainBehind, false);
+            if(terrainSolid) Physics.IgnoreCollision(playerColider, terrainSolid, false);
         }
     }
     void setNearClipPlane()
@@ -165,13 +173,28 @@ public class PortalScript : MonoBehaviour
 
     public void getOwnCollider()
     {
+        //getOwnCollider2();
         RaycastHit hit;
         if(Physics.Raycast(transform.position, -transform.forward, out hit, 0.1f, 1 << 9))
         {
+            getColl();
             terrainBehind = hit.collider.GetComponent<MeshCollider>();
         }
+        
+        /*else
+        {
+            //terrainBehind2 = null;
+        }*/
     }
 
+    public void getColl()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, -transform.forward, out hit, 1f, 1 << 8))
+        {
+            terrainSolid = hit.collider.GetComponent<MeshCollider>();
+        }
+    }
     public void setActive(bool t)
     {
         isActive = t;
