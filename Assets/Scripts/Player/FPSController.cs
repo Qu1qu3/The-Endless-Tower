@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FPSController : MonoBehaviour {
-    public Button continueButton;
+    private Button continueButton;
     public float jumpForce = 8;
     public float drag = 240f;
     public bool lockCursor;
@@ -40,6 +40,7 @@ public class FPSController : MonoBehaviour {
     private GameObject CanvasPausa;
 
     void Start () {
+        continueButton = transform.Find("PausaCanvas/MenuPausa/ContinuarBoton").gameObject.GetComponent<Button>();
         continueButton.onClick.AddListener(resume);
         jumpCheck = transform.Find("jumpCheck").gameObject;
         isHolding = false;
