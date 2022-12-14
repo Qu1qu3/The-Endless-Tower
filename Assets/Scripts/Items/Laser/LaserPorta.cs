@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserPorta : LaserGetter
 {
     public AltarInteraction porta;
-
+    public CaminoRunas runes;
     
     public override void UpdateOn()
     {
@@ -14,10 +14,12 @@ public class LaserPorta : LaserGetter
     public override void getOn()
     {
         porta.getOn();
+        if(runes) runes.setRunas(1);
     }
     public override void getOff()
     {
         porta.getOff();
+        if(runes) runes.setRunas(0);
     }
 }
 

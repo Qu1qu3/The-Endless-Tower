@@ -47,6 +47,14 @@ public class Laser : MonoBehaviour
         direction = d;
     }
     // Update is called once per frame
+    void OnDestroy()
+    {
+        if(getting)
+        {
+            getting = false;
+            lasGet.getOff();
+        }
+    }
     void Update()
     {
 
