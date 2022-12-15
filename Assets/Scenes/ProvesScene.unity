@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.42221254, g: 0.64316183, b: 0.793691, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1812,7 +1812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1383100392266487658, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1383100392266487658, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1894,6 +1894,14 @@ PrefabInstance:
       propertyPath: playerPortalPasado.PortalTiempoPasado
       value: 
       objectReference: {fileID: 750905016}
+    - target: {fileID: 2523903419712465439, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523903419712465439, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2813459922356997657, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -6308,6 +6316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   porta: {fileID: 1785790361}
+  runes: {fileID: 0}
 --- !u!65 &1860792865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8709,7 +8718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6026688580270363956, guid: 49685820041391542a579c7d68d3d70a, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6026688580270363956, guid: 49685820041391542a579c7d68d3d70a, type: 3}
       propertyPath: m_LocalScale.x
