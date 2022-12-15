@@ -976,7 +976,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &356509551
 PrefabInstance:
@@ -1048,6 +1048,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8223503668422958590, guid: 5936ec98043b5bc4fb79fe9f4459cb18, type: 3}
   m_PrefabInstance: {fileID: 356509551}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &358767234
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3545105608570251012, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_text
+      value: Estoy en el... pasado? Algo me dice que lo que haga aqui afectara al
+        futuro
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545105609452088138, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107105, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_Name
+      value: PilarPiedraGeneral
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -238.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -51.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843647706396107110, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
 --- !u!1 &380260560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,7 +3257,7 @@ Transform:
   - {fileID: 1295555180}
   - {fileID: 148121954}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1060817268 stripped
 GameObject:
@@ -6169,7 +6235,7 @@ Transform:
   - {fileID: 1497361734}
   - {fileID: 2008628625}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1992080049
 GameObject:
@@ -6818,7 +6884,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &184486445354601253
 PrefabInstance:
@@ -7409,6 +7475,14 @@ PrefabInstance:
       propertyPath: playerPortalPasado.PortalTiempoPasado
       value: 
       objectReference: {fileID: 1302544838}
+    - target: {fileID: 2523903419712465439, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2523903419712465439, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2813459922356997657, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0

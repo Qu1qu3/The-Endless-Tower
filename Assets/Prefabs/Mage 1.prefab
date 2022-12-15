@@ -289,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40717e978c17c642b498d9d729ed412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continueButton: {fileID: 0}
   jumpForce: 250
   drag: 240
   lockCursor: 1
