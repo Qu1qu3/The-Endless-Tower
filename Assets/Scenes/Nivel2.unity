@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66621685, g: 0.8827709, b: 0.8857476, a: 1}
+  m_IndirectSpecularColor: {r: 0.6662089, g: 0.88277006, b: 0.8857488, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3878,6 +3878,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 122305938, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_text
+      value: Ratom mpseque
+      objectReference: {fileID: 0}
+    - target: {fileID: 122305938, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 122305938, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_margin.w
+      value: 171.90881
+      objectReference: {fileID: 0}
+    - target: {fileID: 122305938, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_margin.y
+      value: 172.52336
+      objectReference: {fileID: 0}
+    - target: {fileID: 122305938, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_margin.z
+      value: -791.6117
+      objectReference: {fileID: 0}
+    - target: {fileID: 122305938, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 432804621, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 321
+      objectReference: {fileID: 0}
+    - target: {fileID: 933822557, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -332
+      objectReference: {fileID: 0}
     - target: {fileID: 1945891292, guid: c63001983ce381344aa5625a09c6bde9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10596,6 +10628,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049317295115651044, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586494413696328985, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6749968983386508165, guid: b51faefe3e08f7e4087222e8abd51a60, type: 3}

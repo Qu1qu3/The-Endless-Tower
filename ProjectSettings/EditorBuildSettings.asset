@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel5.unity
     guid: 086d5df53545deb419f80c98b1ba9ae8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ProvesScene.unity
     guid: 5316e715da9deaf468fd161220d4a3b2
   - enabled: 0

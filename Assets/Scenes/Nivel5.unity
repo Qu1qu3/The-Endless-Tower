@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66621685, g: 0.8827709, b: 0.8857476, a: 1}
+  m_IndirectSpecularColor: {r: 0.6662089, g: 0.88277006, b: 0.8857488, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1546,6 +1546,14 @@ PrefabInstance:
     - target: {fileID: 3545105608570251012, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
       propertyPath: m_text
       value: Recuerdas que puedes manipular el portal del tiempo con la 'Q'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545105608570251012, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_margin.z
+      value: -795.34424
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545105608570251014, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3545105609452088138, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
       propertyPath: m_IsActive
@@ -15572,6 +15580,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3545105608570251012, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_margin.z
+      value: -792.57355
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545105609452088138, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5843647706396107105, guid: a0516d12ac08b0f47a648edd6fc35571, type: 3}
       propertyPath: m_Name
       value: PilarPiedra
