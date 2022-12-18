@@ -18,7 +18,7 @@ public class Holdeable : Interactable
     private Collider thisCollider;
     public float lerpDuration = 0.5f;
 
-    public float pickUpForce = 150.0f;
+    public float pickUpForce = 20.0f;
 
     void Start()
     {
@@ -83,7 +83,7 @@ public class Holdeable : Interactable
         if(Vector3.Distance(transform.position, holdArea.position) > 0.1f)
         {
             Vector3 mDic = (holdArea.position - transform.position);
-            rb.AddForce(mDic * pickUpForce);
+            rb.AddForce(mDic * pickUpForce, ForceMode.Force);
         }
     }
 
