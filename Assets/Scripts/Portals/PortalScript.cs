@@ -29,14 +29,15 @@ public class PortalScript : MonoBehaviour
     public GameObject go;
     [SerializeField]
     private LayerMask lMaskIgnore = 10;
-    private int lMask;    
-    // Start is called before the first frame update
+    private int lMask;
+    
     void Awake()
     {
         
     }
     void Start()
     {
+        //inizializamos todas las variables
         terrainSolid = null;
         lMask = ~(0 << 32);
         lMask &= ~(1 << 10);
@@ -74,21 +75,19 @@ public class PortalScript : MonoBehaviour
         isOpen = false;
         playerRbody = player.GetComponent<Rigidbody>();
         oPS = OtherPortal.GetComponent<PortalScript>();
-        //holdObjPlayer = GameObject.Find("holdObj").transform;
-        //originalHoldPos = holdObjPlayer.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Quaternion.Inverse(transform.rotation) *
+        //Direccion a la que apunta la camara del otro portal
         Quaternion direccion =  Quaternion.Inverse(transform.rotation) * Camera.main.transform.rotation;
-            //Debug.Log (direccion.eulerAngles.x +"  "+ direccion.eulerAngles.y + 180+"  "+ direccion.eulerAngles.z); direccion.eulerAngles.x
         OtherPortalCam.transform.localEulerAngles = new Vector3(direccion.eulerAngles.x, direccion.eulerAngles.y + 180, direccion.eulerAngles.z);
-        //OtherPortalCam.transform.LookAt(OtherPortal.position);
-        
-        Vector3 distancia = transform.InverseTransformPoint(Camera.main.transform.position);  //+ new Vector3(0f,0.6f,-0.5f)
+
+        //Posicion de la camara del otro portal
+        Vector3 distancia = transform.InverseTransformPoint(Camera.main.transform.position);
         OtherPortalCam.transform.localPosition = - new Vector3(distancia.x, -distancia.y, distancia.z);
+
         setNearClipPlane();
         distancePlayer();
     }
@@ -104,36 +103,27 @@ public class PortalScript : MonoBehaviour
 
             if(PlayerFromPortal.z < 0.015)
             {
+
                 Quaternion ftoR = Quaternion.FromToRotation(transform.forward, OtherPortal.transform.forward);
                 //if(ftoR == new Quaternion(1f,0f,0f,0f)) ftoR = new Quaternion(0f,1f,0f,0f);
+
+                /*
+                Codigo descartado de momento
                 Vector3 vel = -playerRbody.velocity;
-                Vector3 vel2 = -transform.InverseTransformDirection(playerRbody.velocity);
-                /*player.transform.position = OtherPortal.position + new Vector3(-PlayerFromPortal.x,
-                                                                                +PlayerFromPortal.y,
-                                                                                -PlayerFromPortal.z);*/
+                Vector3 vel2 = -transform.InverseTransformDirection(playerRbody.velocity);*/
                 
+                //Posicion en el nuevo portal
                 player.transform.position = OtherPortal.position + ftoR * PlayerFromPortal;
                                                                                 
-                //Debug.Log ("Portal Triggering Be");
-                //Quaternion ttt = Quaternion.Inverse(transform.rotation) * player.transform.rotation;
-
-                
+                //Rotacion del personaje al entrar por el portal               
                 player.transform.eulerAngles = Vector3.up * (OtherPortal.eulerAngles.y - (transform.eulerAngles.y - player.transform.eulerAngles.y) + 180);
+                //Rotacion de la camara al entrar por el portal
                 playerCam.transform.localEulerAngles = Vector3.right * (OtherPortal.eulerAngles.x + Camera.main.transform.localEulerAngles.x);
                 
 
-                
-                
+                //vel2 = new Vector3(vel2.x, -vel2.y, vel2.z);
+                playerRbody.velocity = playerRbody.velocity.magnitude * OtherPortal.forward;
 
-                vel2 = new Vector3(vel2.x, -vel2.y, vel2.z);
-
-                //playerRbody.velocity = OtherPortal.transform.TransformDirection(vel2);
-
-                playerRbody.velocity = vel2.magnitude * OtherPortal.forward;
-                //Debug.Log (ftoR);
-
-                //holdObjPlayer.position =  OtherPortal.position + OtherPortal.transform.forward;
-                //Invoke("setOldPos", 0.5f);
             }
         }
     }
@@ -141,9 +131,10 @@ public class PortalScript : MonoBehaviour
     void distancePlayer()
     {
         float distVec = transform.InverseTransformPoint(player.transform.position).magnitude;
-        //Debug.Log (distVec);
+
         if(distVec < 0.9f) 
         {
+            //Si el jugador esta cerca del portal desactivamos las colisiones con la pared para que pueda entrar por el
             isOpen = true;
             if(oPS.getActive())
             {
@@ -154,11 +145,14 @@ public class PortalScript : MonoBehaviour
         }
         else if(isOpen) 
         {
+            //Si se aleja del portal volvemos a activar las colisiones
             isOpen = false;
             Physics.IgnoreCollision(playerColider, terrainBehind, false);
             if(terrainSolid) Physics.IgnoreCollision(playerColider, terrainSolid, false);
         }
     }
+
+    //Codigo dado por Unity para que no haya objetos que aparezcan en la camara cuando no deberian
     void setNearClipPlane()
     {
         Transform clipPlane = transform;
@@ -180,13 +174,7 @@ public class PortalScript : MonoBehaviour
             getColl();
             terrainBehind = hit.collider.GetComponent<MeshCollider>();
         }
-        
-        /*else
-        {
-            //terrainBehind2 = null;
-        }*/
     }
-
     public void getColl()
     {
         RaycastHit hit;
@@ -215,8 +203,4 @@ public class PortalScript : MonoBehaviour
         transform.position = initPos;
         setActive(false);
     }
-    /*void setOldPos()
-    {
-        holdObjPlayer.localPosition = originalHoldPos;
-    }*/
 }

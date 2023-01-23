@@ -13,6 +13,7 @@ public class Laser : MonoBehaviour
 
     public GameObject LaserPrefab;
     private GameObject OtherLaser;
+
     private Laser OtherLaserScript;
     private bool summoning;
     public bool getting;
@@ -21,32 +22,29 @@ public class Laser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Iniciamos variables
         getting = false;
         summoning = false;
         lr = GetComponent<LineRenderer>();
+
         lMask = 1 << 20;
         lMask = ~lMask;
+
         startPoint = transform.position;
         direction = Vector3.up;
     }
     public void setSum(bool b)
     {
+        //summoning indica si este rayo laser esta generando otro al llegar a un portal
         summoning = b;
     }
-    /*public void OnEnable()
-    {
-        lr = GetComponent<LineRenderer>();
-        lMask = (1 << 20);
-        lMask = ~lMask;
-        startPoint = transform.position;
-        direction = Vector3.up;
-    }*/
+    
     public void setPosAndDir(Vector3 p, Vector3 d)
     {
         startPoint = p;
         direction = d;
     }
-    // Update is called once per frame
+    
     void OnDestroy()
     {
         if(getting)
@@ -71,29 +69,36 @@ public class Laser : MonoBehaviour
             {
                 GameObject portal = hit.transform.gameObject;
                 PortalScript portalScript = portal.GetComponent<PortalScript>();
+
                 Vector3 LocalPos = portal.transform.InverseTransformPoint(hit.point);
                 Vector3 OtherPos = portalScript.OtherPortal.transform.TransformPoint(-new Vector3(LocalPos.x, -LocalPos.y, LocalPos.z));
 
                 Vector3 LocalDir = portal.transform.InverseTransformDirection(direction);
                 Vector3 OtherDir = portalScript.OtherPortal.transform.TransformDirection(-new Vector3(LocalDir.x, -LocalDir.y, LocalDir.z));
-                //OtherDir = direction * Quaternion.FromToRotation(portal.transform.eulerAngles , portalScript.OtherPortal.transform.eulerAngles );
+
+                //Crear otro laser que depende de este si aun no existe uno
                 if(OtherLaser == null)
                 {
                     OtherLaser = Instantiate(LaserPrefab, transform.position, transform.rotation, transform);
                     OtherLaserScript = OtherLaser.GetComponent<Laser>();
                     summoning = true;
                 }
-                //Debug.Log(OtherLaser);
+                //Actualizar la posicion y direccion del otro laser
                 OtherLaserScript.setPosAndDir(OtherPos, OtherDir);
-               //OtherLaserScript.setPosAndDir(OtherPos, portalScript.OtherPortal.transform.forward);
             }
-            else //if(OtherLaser != null)
+            else
             {
-                Destroy(OtherLaser);
-                OtherLaserScript = null;
-                summoning = false;
+                //Si no encuentra un portal, no tiene que haber otro laser
+                if(summoning)
+                {
+                    Destroy(OtherLaser);
+                    OtherLaserScript = null;
+                    summoning = false;
+                }
+                
             }
 
+            //Si encuentra un objeto que reaccione a los laseres, activa su funcion.
             if(hit.transform.tag == "LaserGetter")
             {
                 lasGet = hit.transform.gameObject.GetComponent<LaserGetter>();

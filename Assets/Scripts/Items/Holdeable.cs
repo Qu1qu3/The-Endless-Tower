@@ -22,6 +22,7 @@ public class Holdeable : Interactable
 
     void Start()
     {
+        //Inizalizacion Variables
         thisCollider = GetComponent<Collider>();
         newMat = Resources.Load<Material>("Material/blueTransparent");
         meshRenderer = GetComponent<Renderer>();
@@ -35,6 +36,7 @@ public class Holdeable : Interactable
         rb = GetComponent<Rigidbody>();
     }
 
+    //Si el jugador Interactua
     public override void Interact()
     {
         if(isHolded) stopHolding();
@@ -52,7 +54,7 @@ public class Holdeable : Interactable
         rb.velocity = Vector3.zero;
         player.stopHolding();
 
-        //meshRenderer.materials = originalMaterials;
+
         StartCoroutine(Lerp(1f,0f));
         Physics.IgnoreCollision(playerColider, thisCollider, false);
     }
@@ -67,9 +69,6 @@ public class Holdeable : Interactable
         transform.parent = holdArea;
         player.hold(this);
 
-        //var materialsCopy = meshRenderer.materials;
-        //materialsCopy[0] = newMat;
-        //meshRenderer.materials = materialsCopy;
         StartCoroutine(Lerp(0f,1f));
         Physics.IgnoreCollision(playerColider, thisCollider, true);
     }
@@ -92,6 +91,7 @@ public class Holdeable : Interactable
         canBeHolded = b;
     }
 
+    //Para la animación de "desvanecerse"
     IEnumerator Lerp(float startValue, float endValue)
     {
         float timeElapsed = 0;
