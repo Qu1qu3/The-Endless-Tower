@@ -9,6 +9,7 @@ public class PiedraNivel3 : Interactable
     GameObject PilarPiedra;
     GameObject contenedorTexto;
     GameObject historia;
+    GameObject qMark;
     TMP_Text texto;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PiedraNivel3 : Interactable
 
         historia = PilarPiedra.transform.Find("ParaDialogo/Historia").gameObject;
         contenedorTexto = PilarPiedra.transform.Find("ParaDialogo/Historia/Textito").gameObject;
+        qMark = PilarPiedra.transform.Find("Question").gameObject;
         texto = contenedorTexto.GetComponent<TMP_Text>();
     }
 
@@ -42,5 +44,6 @@ public class PiedraNivel3 : Interactable
             player.activeHist = true;
             //texto.SetText("Recuerdas que se pueden hacer portales con los clicks del ratón");
         }
+        qMark.SetActive(false);
     }
 }
