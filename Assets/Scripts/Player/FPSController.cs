@@ -28,7 +28,7 @@ public class FPSController : MonoBehaviour {
     Camera cam;
     
     public float velocidad;
-    private int multVel;
+    private float multVel;
     private float multVel2;
     private float multAir;
     Rigidbody Rbody;
@@ -105,7 +105,7 @@ public class FPSController : MonoBehaviour {
 
     void readInput()
     {
-        if(Input.GetKey(KeyCode.LeftShift)) {multVel = 1;} else {multVel = 1;}
+        if(Input.GetKey(KeyCode.LeftShift)) {multVel = 2f;} else {multVel = 1;}
         if(Input.GetKeyDown(KeyCode.Space)) jump();
         if(Input.GetMouseButtonDown(0) && !isHolding && canShoot1) shootPortal(0);
         if(Input.GetMouseButtonDown(1) && !isHolding && canShoot2) shootPortal(1);
